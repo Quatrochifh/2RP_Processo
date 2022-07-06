@@ -1,0 +1,128 @@
+:root{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+.pagina {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1em;
+}
+
+.inputemailsenha {
+    height: 42px;
+    width: 246px;
+    padding-left: 3%;
+    font-size: 1em;
+    background: #FAFAFA;
+    border: 1px solid #DCDCDC;
+    border-radius: 6px;
+}
+/* .inputemailsenha ::placeholder{
+    color: red;
+} */
+
+.containertudo {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+} 
+.content2 {
+    display: flex;
+    align-items: center;
+}
+
+.login1 {
+    box-shadow: 0px 4px 15px rgb(0 0 0 / 25%);
+    height: 59vh;
+}
+
+
+.login2 {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    width: 19vw;
+    height: 50vh;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.login2 h3 {
+    font-size: 1.5em;
+    color: #40A798;
+    text-transform: uppercase
+}
+
+.areaLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 75%;
+}
+
+.emailsenha{
+    /* color: red; */
+    font-size: 1em;
+}
+
+.buttonLogin{
+    width: 50%;
+    height: 35px;
+    color: #FFFFFF;
+    background-color: #40A798;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 550;
+}
+
+
+
+/* cadastrar */
+
+.cadastrar1 {
+    box-shadow: 0px 4px 15px rgb(0 0 0 / 25%);
+    width: 26vw;
+    height: 79vh
+}
+
+
+.cadastrar2 {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    width: 21vw;
+    height: 70vh;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cadastrar2 h3 {
+    font-size: 1.5em;
+    color: #40A798;
+    text-transform: uppercase
+}
+
+.ativo {
+    color: green;
+}
+
+.inativo{
+    color: red;
+}
+
+.tod {
+    color: #40A798;
+}
+
