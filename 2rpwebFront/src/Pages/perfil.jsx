@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-//import axios from 'axios';
-import api from "../services/api"
+import axios from 'axios';
+import { parseJwt } from '../services/auth';
+//import api from "../services/api"
 
 export default function MeuPerfil(){
     const [ meuPerfil, setmeuPerfil ] = useState( [] );
     const [ userID, setUserID] = useState(0);
 
     function buscarMeuPerfil(){
-        api('http://localhost:5000/api/Usuario/Listarusu' + userID  , {
+        axios('http://localhost:5000/api/Usuario/Listarusu/' +  parseJwt().jti, {
             headers : {
                 'Authorization' : 'Bearer ' + localStorage.getItem('token')
             }
@@ -21,7 +22,11 @@ export default function MeuPerfil(){
         })
         .catch( erro => console.log(erro) );
     };
+
     
+    
+
+
     useEffect( buscarMeuPerfil, [] );
 
     return(

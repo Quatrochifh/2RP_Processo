@@ -1,6 +1,8 @@
 ﻿using processo_rp_webAPI.Domains;
 using System.Collections.Generic;
 using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace processo_rp_webAPI.Interfaces
 {

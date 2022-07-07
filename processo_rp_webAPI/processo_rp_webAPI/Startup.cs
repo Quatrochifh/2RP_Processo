@@ -47,7 +47,7 @@ namespace processo_rp_webAPI
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("rp_Processo")),
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("processo2rpchavelonga")),
                         ClockSkew = TimeSpan.FromMinutes(120),
                         ValidIssuer = "rp_Processo",
                         ValidAudience = "rp_Processo"

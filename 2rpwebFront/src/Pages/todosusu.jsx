@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-//import axios from 'axios';
-import api from "../services/api"
+import axios from 'axios';
+//import api from "../services/api"
+
 import { parseJwt } from "../services/auth.js";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ export default function Perfils(){
     const [ perfil, setPerfil ] = useState( [] );
 
     function TodosPerfil(){
-        api('http://localhost:5000/api/Usuario/ListarTodos'  , {
+        axios('http://localhost:5000/api/Usuario/ListarTodos'  , {
             headers : {
                 'Authorization' : 'Bearer ' + localStorage.getItem('token')
             }
@@ -26,8 +27,8 @@ export default function Perfils(){
     useEffect( TodosPerfil, [] );
 
     const deleteUser = (idUser) => {
-        if (parseJwt().role == '3') {
-            api.delete('http://localhost:5000/api/Usuario/{idUser}' + idUser, {
+        if (parseJwt().role == '1' || parseJwt().role == '2') {
+            axios.delete('http://localhost:5000/api/Usuario/delete/' + idUser, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -41,11 +42,8 @@ export default function Perfils(){
                 .catch((erro) => console.log(erro));
         }
     }
-    let navigate = useNavigate();
 
-    function redirecionarTela() {
-        navigate.push('/EditarUsuario')
-    }
+    //let navigate = useNavigate();
 
 
     return(
@@ -65,12 +63,10 @@ export default function Perfils(){
                                     <th className='tod'>Senha</th>
                                     <th className='tod'>Tipo De Usuario</th>
                                     <th className='tod'>Status: </th>
-                                    {/* <th>Situação</th> */}
                                 </tr>
                             </thead>
 
                             <tbody>
-
                                 {
                                     perfil.map( (usuarios) => {
                                         return(
@@ -79,9 +75,9 @@ export default function Perfils(){
                                                 <td>{usuarios.emailUsu}</td>
                                                 <td>{usuarios.senhaUsu}</td>
                                                 <td>{usuarios.idTipo}</td>
-                                                <td>{usuarios.IdStatusUsu === 2 ? <span className='inativo'>Inativo</span> : <span className='ativo'>Ativo</span>}</td>
+                                                <td>{(usuarios.idStatusUsu) == 1 ? <span className='Ativo'>Ativo</span> : <span className='inativo'>Inativo</span>}</td>
                                                 <button className='deletar' onClick={() => deleteUser(usuarios.idUsuario)}>DELETAR USUARIO</button>
-                                                <Link to="/EditarUsuario" className="Names_b">EDITAR USUARIO</Link>
+                                                <Link to="/EditarTodosUsuarios" className="Names_b">EDITAR USUARIO</Link>
                                             </tr>
                                         )
                                     } )                                

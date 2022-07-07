@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import api from "../services/api"
+//import api from "../services/api"
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { parseJwt, usuarioAutenticado} from "../services/auth.js";
 
 import userlog from "../Assets/img/myuserlog.png"
 import '../Assets/css/paginas.css'
+
+
 
 export default function Cadastro() {
     const [email, setEmail] = useState('');
@@ -16,12 +20,12 @@ export default function Cadastro() {
     const cadastrar = (e) => {
         e.preventDefault();
         if (usuarioAutenticado() === true && parseJwt().role === '1' || parseJwt().role === '2') {
-            api.post('http://localhost:5000/api/Usuario', {
+            axios.post('http://localhost:5000/api/Usuario', {
                 IdTipo: tipoUsua,
-                IdStatusUsu: 3,
+                IdStatusUsu: 2,
                 nomeUsua: nomeUsua,
-                email: email,
-                senha: senha,
+                emailUsu: email,
+                senhaUsu: senha,
             }, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -34,6 +38,8 @@ export default function Cadastro() {
                         setsenha('')
                         setnomeUsua('')
                         settipoUsua(3)
+                    
+                        //EditarTodosUsuarios
                     }
                 })
                 .catch((erro) => console.log(erro));
@@ -70,6 +76,7 @@ export default function Cadastro() {
                                 </select>
                             </div>
                             <button  className='buttonLogin' type='submit'>Entrar</button>
+                            <Link to="/Perfil" className="Names_b">VIZUALIZAR TODOS PERFILS</Link>
                         </form>
                     </div>
                 </div>

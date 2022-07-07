@@ -5,7 +5,8 @@ import Login from './Pages/home';
 import Cadastro from './Pages/cadastro';
 import MeuPerfil from './Pages/perfil';
 import Perfil from './Pages/todosusu';
-import EditarUsuario from './Pages/editarUsu';
+import EditarUsuario from './Pages/editarMeuUsu';
+import EditarTodosUsuarios from './Pages/editarUsuario';
 
 import {
   Route,
@@ -24,6 +25,7 @@ const routing = (
         <Route path="/MeuPerfil" element={<MeuPerfil />} /> 
         <Route path="/Perfil" element={<Perfil />} />
         <Route path="/EditarUsuario" element={<EditarUsuario />} />  
+        <Route path="/EditarTodosUsuarios" element={<EditarTodosUsuarios />} />  
       </Routes>
     </div>
   </Router>

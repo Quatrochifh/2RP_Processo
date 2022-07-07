@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using processo_rp_webAPI.Domains;
 using processo_rp_webAPI.Interfaces;
+using processo_rp_webAPI.Repositories;
 using processo_rp_webAPI.ViewModel;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,9 +18,9 @@ namespace processo_rp_webAPI.Controllers
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
 
-        public LoginController(IUsuarioRepository repo)
+        public LoginController()
         {
-            _usuarioRepository = repo;
+            _usuarioRepository = new UsuarioRepository();
         }
 
         [HttpPost]
@@ -46,7 +47,7 @@ namespace processo_rp_webAPI.Controllers
                 new Claim("stt", usuarioBuscado.IdStatusUsu.ToString())
             };
 
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("rp_Processo"));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("processo2rpchavelonga"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 

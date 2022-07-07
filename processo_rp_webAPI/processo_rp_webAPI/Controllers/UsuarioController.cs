@@ -5,6 +5,8 @@ using processo_rp_webAPI.Domains;
 using processo_rp_webAPI.Interfaces;
 using processo_rp_webAPI.Repositories;
 using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace processo_rp_webAPI.Controllers
 {
@@ -42,7 +44,7 @@ namespace processo_rp_webAPI.Controllers
 
         //Excluir Usuário
        // [Authorize(Roles = "1")]
-        [HttpDelete("{idUser}")]
+        [HttpDelete ("delete/{id}")]
         public IActionResult DeleteUser(int id)
         {
             UsuarioRepository.Deletar(id);
